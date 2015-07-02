@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/3.4.9/favicons/favicon.ico?1411985985" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link href="css/guide.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/app.css" media="screen" rel="stylesheet" type="text/css" />
+        <!--[if gt IE 8]><link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/3.4.9/stylesheets/fonts_ie.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+        <title>CesiumJS - CartoDB demos</title>
+    </head>
+    <body class="public-map">
+        <header class="Header">
+            <div class="inner clearfix">
+                <h1 class="u-left">
+                    <a href="http://www.cartodb.com" >
+                        <img src="https://cartodb-libs.global.ssl.fastly.net/cartodb.com/static/logos_full_cartodb_light.svg" class="u-iblock u-malign" height="40" />
+                        <span class="color-medium u-iblock u-malign u-lspace-xs" id="js-infoHeader">
+                            /&nbsp;Integration with Celsium
+                        </span>
+                    </a>
+                </h1>
+                <ul class="u-ilist u-right">
+                    <li><a href="http://www.cartodb.com/login">Login</a></li>
+                    <li class="u-lspace-xl">
+                          <p class="button button--blue">
+                            <a href="http://www.cartodb.com/signup">
+                              Sign up
+                            </a>
+                          </p>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="Container Container--fixed">
+            <section class="block">
+                <h1 class="u-vspace-l"><strong>CartoDB integration with Cesium (examples)</strong></h1>
+                <p class="u-vspace-s">These are a few basic examples of what can be achieved with <a href="http://cartodb.com">CartoDB</a> and <a href="http://cesiumjs.org">Cesium</a>. Some of these examples use <a href="https://github.com/CartoDB/cesium-cartodb">CartoDB's Cesium plugin</a> to integrate CartoDB tile layers in Cesium.</p>
+                <p>The code for these examples can be found on <a href="https://github.com/CartoDB/labs-cesiumjs">GitHub</a></p>
+            </section>
+
+            <section class="block">
+                <div class="Grid">
+                    <div class="Grid-inner Grid-inner--vcenter">
+                        <div class="Grid-cell Grid-cell--col7 Grid-cell--col6--tablet Grid-cell--col12--mobile Section-offset--left">
+                            <div class="Browser u-iblock">
+                              <ul class="Browser-actions u-ilist">
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                              </ul>
+                              <div class="Browser-bar">
+                                <div class="Browser-address"></div>
+                              </div>
+
+                              <div class="Browser-media">
+                                <div class="Browser-inner u-pr">
+                                  <div class="Browser-bg"></div>
+                                   <a href="simple.html">
+                                        <img src="images/simple.jpg" class="no-full" width="620" height="363" alt="Simple example">
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="Grid-cell Grid-cell--col5 Grid-cell--col6--tablet Grid-cell--col12--mobile u-tspace-xxl">
+                            <h1 class="u-vspace-l">Simple</h1>
+                            <p class="description u-vspace-xl">This example features Cesium with a CartoDB basemap, a CartoDB tile layer and a data layer (same data as the tile layer) drawn with Cesium.</p>
+                            <p class="button button--outline u-txt-left">
+                                <a class="u-txt-center" href="simple.html">
+                                  View example
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <div class="Grid">
+                    <div class="Grid-inner Grid-inner--vcenter">
+                        <div class="Grid-cell Grid-cell--col5 Grid-cell--col6--tablet Grid-cell--col12--mobile u-tspace-xxl">
+                            <h1 class="u-vspace-l">Tornados</h1>
+                            <p class="description u-vspace-xl">This example shows a CartoDB basemap and a CartoDB tile layer.</p>
+                            <p class="button button--outline u-txt-left">
+                                <a class="u-txt-center" href="tornados.html">
+                                  View example
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="Grid-cell Grid-cell--col7 Grid-cell--col6--tablet Grid-cell--col12--mobile Section-offset--right">
+                            <div class="Browser u-iblock">
+                              <ul class="Browser-actions u-ilist">
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                              </ul>
+                              <div class="Browser-bar">
+                                <div class="Browser-address"></div>
+                              </div>
+
+                              <div class="Browser-media">
+                                <div class="Browser-inner u-pr">
+                                  <div class="Browser-bg"></div>
+                                  <!--
+                                   <img src="simple.png" width="620" />
+                               -->
+                                   <a href="tornados.html">
+                                        <img src="images/tornados.jpg" class="no-full" width="620" height="363" alt="Tornados example">
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block">
+                <div class="Grid">
+                    <div class="Grid-inner Grid-inner--vcenter">
+                        <div class="Grid-cell Grid-cell--col7 Grid-cell--col6--tablet Grid-cell--col12--mobile Section-offset--left">
+                            <div class="Browser u-iblock">
+                              <ul class="Browser-actions u-ilist">
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                              </ul>
+                              <div class="Browser-bar">
+                                <div class="Browser-address"></div>
+                              </div>
+
+                              <div class="Browser-media">
+                                <div class="Browser-inner u-pr">
+                                  <div class="Browser-bg"></div>
+                                  <!--
+                                <img src="elevation.png" />
+                               -->
+                                   <a href="elevation.html">
+                                        <img src="images/elevation.jpg" class="no-full" width="620" height="363" alt="Elevation example">
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="Grid-cell Grid-cell--col5 Grid-cell--col6--tablet Grid-cell--col12--mobile u-tspace-xxl">
+                            <h1 class="u-vspace-l">Elevation</h1>
+                            <p class="description u-vspace-xl">This example shows a data layer from CartoDB rendered with Cesium. The data table has an extra column for elevation. which is used to set the height of the vertical lines.</p>
+                            <p class="button button--outline u-txt-left">
+                                <a class="u-txt-center" href="elevation.html">
+                                  View example
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block block--noborder">
+                <div class="Grid">
+                    <div class="Grid-inner Grid-inner--vcenter">
+                        <div class="Grid-cell Grid-cell--col5 Grid-cell--col6--tablet Grid-cell--col12--mobile u-tspace-xxl">
+                            <h1 class="u-vspace-l">Queensland</h1>
+                            <p class="description u-vspace-xl">This example shows a data layer from CartoDB rendered with Cesium. The data table has an extra column for elevation. which is used to set the height of the vertical lines.</p>
+                            <p class="button button--outline u-txt-left">
+                                <a class="u-txt-center" href="queensland.html">
+                                  View example
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="Grid-cell Grid-cell--col7 Grid-cell--col6--tablet Grid-cell--col12--mobile Section-offset--right">
+                            <div class="Browser u-iblock">
+                              <ul class="Browser-actions u-ilist">
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                                <li class="Browser-actionsItem"></li>
+                              </ul>
+                              <div class="Browser-bar">
+                                <div class="Browser-address"></div>
+                              </div>
+
+                              <div class="Browser-media">
+                                <div class="Browser-inner u-pr">
+                                  <div class="Browser-bg"></div>
+                                  <!--
+                                   <img src="simple.png" width="620" />
+                               -->
+                                    <a href="queensland.html">
+                                        <img src="images/queensland.jpg" class="no-full" width="620" height="363" alt="Queensland example">
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="Footer clearfix">
+                <p class="u-left">
+                     &copy; 2015 CartoDB - <a href="https://cartodb.com/signup" title="Create your own maps with CartoDB">Create your own maps</a>
+                </p>
+                <p class="u-right">
+                    <a href="http://cartodb.com/terms" target="blank">Terms of Service</a> ·
+                    <a href="http://cartodb.com/privacy" target="blank">Privacy policy</a>
+                </p>
+            </div>
+
+        </div>
+
+        <script>
+            $( document ).ready(function() {
+                console.log( "ready!" );
+            });
+        </script>
+    </body>
+</html>

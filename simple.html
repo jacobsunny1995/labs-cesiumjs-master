@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>Live News Feed</title>
+        <link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/3.4.9/favicons/favicon.ico?1411985985" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+        <link href="css/guide.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="Cesium/Widgets/widgets.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/app.css" media="screen" rel="stylesheet" type="text/css" />
+
+        <script src="Cesium/Cesium.js"></script>
+        <style>
+            html, body, #cesiumContainer {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cesiumContainer"></div>
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.core.js"></script>
+        <script src="cesium-cartodb.min.js"></script>
+        <script>
+            // Basemap
+            var basemapProvider = new Cesium.CartoDBImageryProvider({
+                url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}@2x.png'
+            });
+
+            var viewer = new Cesium.Viewer('cesiumContainer', {
+                imageryProvider: basemapProvider,
+                baseLayerPicker: false,
+                timeline: false,
+                animation: false,
+                infoBox:true
+            });
+            
+            var scene = viewer.scene;
+            var handler;
+            // Tile data layer (circles)
+            var layerData = {
+                user_name: 'jacobsunny95',
+                sublayers: [{
+                    sql: "SELECT * FROM gkg_geojson",
+                    cartocss: '#layer { marker-fill: #00FF00; }'
+                }]
+            };
+            cartodb.Tiles.getTiles(layerData, function (tiles, err) {
+                if (tiles == null) {
+                    console.log("error: ", err.errors.join('\n'));
+                    return;
+                }
+                viewer.scene.imageryLayers.addImageryProvider(new Cesium.CartoDBImageryProvider({
+                    url: tiles.tiles[0]
+                }));
+            });
+            var lastNow = Date.now();
+            viewer.clock.onTick.addEventListener(function (clock) {
+                var now = Date.now();
+                var spinRate = 0.05;
+                var delta = (now - lastNow) / 1000;
+                lastNow = now;
+                viewer.scene.camera.rotate(Cesium.Cartesian3.UNIT_Z, -spinRate * delta);
+            });
+            var dataSource = new Cesium.GeoJsonDataSource();
+            viewer.dataSources.add(dataSource);
+            viewer.selectionIndicator.destroy();
+            var sql = new cartodb.SQL({ user: 'jacobsunny95', format: 'geoJSON' });
+            sql.execute("SELECT *  FROM gkg_geojson")
+                    .done(function (data) {
+                        dataSource.load(data)
+                                .then(function () {
+                                    var entities = dataSource.entities.entities;
+                                    for (var i = 0; i < entities.length; i++) {
+                                        var entity = entities[i];
+                                        entity.billboard.show = new Cesium.ConstantProperty(true);
+                                        entity.billboard.image = new Cesium.ConstantProperty('https://cdn0.iconfinder.com/data/icons/weboo-2/512/pin.png');
+                                        entity.billboard.scale = new Cesium.ConstantProperty(0.1)
+                                        
+                                    }
+                                })
+                        
+                    .error(function (errors) {
+                        // errors contains a list of errors
+                        console.log("errors:" + errors);
+                    });
+                     
+                    });
+            
+            viewer.dataSources.add(dataSource);
+           
+        </script>
+    </body>
+</html>
